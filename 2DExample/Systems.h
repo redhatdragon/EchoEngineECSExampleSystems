@@ -4,14 +4,14 @@
 #include "Pathfinding.h"
 
 extern DDECS<24, 100008> ecs;
-#ifdef USE_AABB
 #include <PhysicsEngineAABB2D.h>
+#include <PhysicsEngineConvex2D.h>
+#ifdef USE_AABB
 extern PhysicsEngineAABB2D<512 / 2, 512 / 2, 128> physics;
 #elif defined(USE_CONVEX)
-#include <PhysicsEngineConvex2D.h>
 extern PhysicsEngineConvex2D<512 / 2, 512 / 2, 128> physics;
 #else
-#error "didn't define either USE_AABB nor USE_CONVEX"
+extern PhysicsEngineAABB2D<512 / 2, 512 / 2, 128> physics;
 #endif
 
 #include "SystemDeath.h"
