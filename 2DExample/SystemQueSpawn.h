@@ -61,7 +61,7 @@ public:
 				memcpy(&que[0], &ques[0], sizeof(Name)*ques.size());  //TODO: what?
 			}
 			que.pop();
-			std::string entityPath = getDirData();
+			std::string entityPath = EE_getDirData();
 			entityPath += "Entities/Solder.txt";
 			EntityID spawnedEntity = SystemUtilities::spawnEntityAt(entityPath, {queSpawn->x, queSpawn->y});
 			//printf("spawn\n");

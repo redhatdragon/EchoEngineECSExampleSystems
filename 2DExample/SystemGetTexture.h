@@ -19,7 +19,7 @@ public:
 		std::vector<EntityID> owningEntities;
 		for (uint32_t i = 0; i < getTextureCount; i++) {
 			Name texPath = getTextureBuffer[i];
-			std::string totalPath = getDirData();
+			std::string totalPath = EE_getDirData();
 			//totalPath += "/";
 			totalPath += texPath.c_str();
 			TextureID tex = TextureCodex::add(totalPath);

@@ -18,13 +18,13 @@ public:
 		if (body == nullptr) return;
 		float vx = 0, vy = 0;
 		float speed = 3;
-		if (getKeyState('w'))
+		if (EE_getKeyState('w'))
 			vy -= speed;
-		if (getKeyState('s'))
+		if (EE_getKeyState('s'))
 			vy += speed;
-		if (getKeyState('a'))
+		if (EE_getKeyState('a'))
 			vx -= speed;
-		if (getKeyState('d'))
+		if (EE_getKeyState('d'))
 			vx += speed;
 		physics.setVelocity(*body, vx, vy);
 	}

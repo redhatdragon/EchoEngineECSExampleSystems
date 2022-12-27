@@ -25,7 +25,7 @@ public:
 			}
 		}
 		unsigned int winWidth, winHeight;
-		getCanvasSize(&winWidth, &winHeight);
+		EE_getCanvasSize(&winWidth, &winHeight);
 		int cx = -(camPos.x-winWidth / 2), cy = -(camPos.y-winHeight/2);
 
 		uint32_t texCount = ecs.getComponentCount(textureComponentID);
@@ -37,7 +37,8 @@ public:
 			auto pos = physics.getPos<int32_t>(bodyID);
 			auto siz = physics.getSize<int32_t>(bodyID);
 			TextureID texID = ecs.getEntityComponentAs<TextureID>(entity, textureComponentID);
-			drawTexture(TextureCodex::get(texID), pos.x+cx, pos.y+cy, siz.x, siz.y);
+			EE_resizeTexture(TextureCodex::get(texID), siz.x, siz.y);  //TODO: rework this
+			EE_drawTexture(TextureCodex::get(texID), pos.x+cx, pos.y+cy);
 		}
 
 		ms = clock() - startTime;

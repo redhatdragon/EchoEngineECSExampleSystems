@@ -67,7 +67,7 @@ namespace SystemUtilities {
 	};
 
 	EntityID spawnEntityAt(const std::string& entityPath, Vec2D<uint32_t> pos) {
-		std::string dataDir = getDirData();
+		std::string dataDir = EE_getDirData();
 		EntityObject entityObject = EntityObjectLoader::createEntityObjectFromFile(dataDir + entityPath);
 		EntityID entity = ecs.getNewEntity();
 
